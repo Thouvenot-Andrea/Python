@@ -2,6 +2,7 @@ import sqlite3
 from bottle import route, run, debug, template, request, static_file, error
 
 
+# affiche la liste des item par rapport à leur status
 @route('/todo')
 @route('/my_todo_list')
 def todo_list():
@@ -15,6 +16,7 @@ def todo_list():
     return output
 
 
+# Créer un nouvel item
 @route('/new', method="GET")
 def new_item():
     if request.GET.save:
@@ -34,6 +36,7 @@ def new_item():
         return template('view/new_task.tpl')
 
 
+# afficher edit/id ex id1 donc http://127.0.0.1:8080/edit/1 on peut modifier le task(non) et le status (1 or 0)
 @route('/edit/<no:int>', method='GET')
 def edit_item(no):
     if request.GET.save:
