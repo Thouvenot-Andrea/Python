@@ -1,4 +1,3 @@
-<p>The open items are as follows:</p>
 <table border="1">
     %for row in rows:
     <tr>
